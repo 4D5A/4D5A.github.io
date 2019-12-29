@@ -1,9 +1,6 @@
-<!DOCTYPE html>
 <html lang = "en-US">
-<html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/design.css">
-</link>
+<link rel="stylesheet" type="text/css" href="css/design.css" />
 </head>
 <body>
 
