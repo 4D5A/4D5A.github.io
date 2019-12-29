@@ -6,7 +6,7 @@ h2 {
     font-weight: bold;
     float: center;
 }
-navigationbar {
+div.navigationbar {
     width: 100%;
     background-color: black;
     color: white;
