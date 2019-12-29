@@ -11,6 +11,7 @@ div.navigationbar {
     background-color: black;
     color: white;
 }
+div#navigationbar a:link {color: white;}
 body {
    background-color: white; 
 }
