@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang = "en-US">
 <head>
-    <link rel="import" href="https://4D5A.github.io/websiteheader.html">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script> 
+$(function(){
+$("#websiteheader").load("websiteheader.html"); 
+$("#websitefooter").load("websitefooter.html"); 
+});
+</script> 
 </head>
+<body>
+<div id="websiteheader"></div>
 <table>
     <tr>
         <td>
@@ -43,10 +51,6 @@
         </td>
     </tr>
 </table>
-<div class="footer">
-    <h2>© 2019-2020 4D5A</h2>
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  </div>
-  
-  </body>
-  </html>
+<div id="websitefooter"></div>
+</body>
+</html>
