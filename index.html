@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang = "en-US">
 <head>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script> 
+$(function(){
+  $("#websiteheader").load("websiteheader.html"); 
+  $("#websitefooter").load("websitefooter.html"); 
+});
+</script> 
 <link rel="import" href="/websiteheader.html">
 </head>
 <body>
+<div id="websiteheader"></div>
 <table>
   <tr>
     <td>
@@ -29,7 +37,7 @@
 
 <a href="https://stackexchange.com/users/7756439"><img src="https://stackexchange.com/users/flair/7756439.png" width="208" height="58" alt="profile for user5870571 on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for user5870571 on Stack Exchange, a network of free, community-driven Q&amp;A sites"></a>
 
-<link rel="import" href="websitefooter.html">
+<div id="websitefooter"></div>
 </body>
 </html>
 <!-- 2 Corinthians 12:9-10 And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me. Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake: for when I am weak, then am I strong. -->
