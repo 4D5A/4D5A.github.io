@@ -34,17 +34,17 @@ div.title {
 }
 div.main-area {
     text-align: left;
-    margin: 0px;
+    margin: 10px;
     width: 100%;
 }
 table td {
     vertical-align: top;
-    margin: 0px;
+    margin: 10px;
     border-width: 0px;
 }
 table tr {
     vertical-align: top;
-    margin: 0px;
+    margin: 10px;
     border-width: 0px;
 }
 div.right-sidebar {
