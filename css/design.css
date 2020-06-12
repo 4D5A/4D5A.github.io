@@ -29,6 +29,10 @@ div.navigationbar a:visited {
 div.navigationbar a:active {
     color: white;
 }
+div.title {
+    margin: 10px;
+    width: 70%;
+}
 div.main-area {
     margin: 10px;
     width: 70%;
