@@ -36,6 +36,8 @@ div.main-area {
 }
 table td {
     vertical-align: top;
+    margin: 0px;
+    border-width: 0px;
 }
 div.second-area {
     margin: 10px;
