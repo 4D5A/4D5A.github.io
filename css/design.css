@@ -12,6 +12,7 @@ div.navigationbar {
     height: 20px;
     width: 80%;
     color: white;
+    border: 10px;
 }
 div.navigationbar form {
     display: block;
@@ -37,7 +38,7 @@ div.main-area {
 table td {
     vertical-align: top;
     margin: 0px;
-    border-width: 10px;
+    border-width: 0px;
 }
 div.second-area {
     text-align: right;
