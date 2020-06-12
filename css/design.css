@@ -35,7 +35,7 @@ div.title {
 div.main-area {
     text-align: left;
     margin: 10px;
-    width: 30%;
+    width: 100%;
 }
 table td {
     vertical-align: top;
@@ -48,7 +48,7 @@ table tr {
     border-width: 0px;
 }
 div.right-sidebar {
-    text-align: right;
+    text-align: left;
     margin: 40px;
     width: 100%;
 }
