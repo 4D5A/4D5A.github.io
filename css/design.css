@@ -33,6 +33,7 @@ div.title {
     width: 70%;
 }
 div.main-area {
+    text-align: left;
     margin: 0px;
     width: 100%;
 }
