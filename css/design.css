@@ -11,10 +11,10 @@ div.navigationbar {
     background-color: black;
     border-collapse: separate;
     border-spacing: 0px;
-    margin: 10px;
+    margin: 0px;
     width: 80%;
     color: white;
-    padding: 5px;
+    padding: 0px;
 }
 div.navigationbar form {
     display: block;
@@ -31,14 +31,14 @@ div.navigationbar a:active {
 }
 div.main-area {
     margin: 10px;
-    width: 50%;
+    width: 70%;
 }
 table td {
     vertical-align: top;
 }
 div.second-area {
     margin: 10px;
-    width: 50%;
+    width: 40%;
 }
 div.footer {
     background-color: gray;
