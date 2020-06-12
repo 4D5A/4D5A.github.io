@@ -32,7 +32,7 @@ div.title {
 }
 div.main-area {
     margin: 0px;
-    width: 40%;
+    width: 100%;
 }
 table td {
     vertical-align: top;
@@ -41,7 +41,7 @@ table td {
 }
 div.second-area {
     margin: 0px;
-    width: 40%;
+    width: 100%;
 }
 div.footer {
     background-color: gray;
