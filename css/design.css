@@ -37,7 +37,7 @@ div.main-area {
 table td {
     vertical-align: top;
     margin: 0px;
-    border-width: 0px;
+    border-width: 10px;
 }
 div.second-area {
     text-align: right;
