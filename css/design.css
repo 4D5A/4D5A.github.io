@@ -40,8 +40,9 @@ table td {
     border-width: 0px;
 }
 div.second-area {
+    text-align: right;
     margin: 0px;
-    width: 100%;
+    width: 30%;
 }
 div.footer {
     background-color: gray;
