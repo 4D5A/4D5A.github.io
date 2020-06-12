@@ -35,7 +35,7 @@ div.title {
 div.main-area {
     text-align: left;
     margin: 0px;
-    width: 100%;
+    width: 70%;
 }
 table td {
     vertical-align: top;
@@ -54,10 +54,6 @@ div.right-sidebar {
 }
 div.footer {
     background-color: gray;
-    font-size: small;
-    font-weight: normal;
-    margin: 10px;
-    width: 100%;
     border-collapse: separate;
     height: 20px;
     width: 100%;
