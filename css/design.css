@@ -10,7 +10,7 @@ h2 {
 div.navigationbar {
     background-color: black;
     border-collapse: separate;
-    border-spacing: 5px;
+    border-spacing: 0px;
     margin: 10px;
     width: 80%;
     color: white;
@@ -31,14 +31,14 @@ div.navigationbar a:active {
 }
 div.main-area {
     margin: 10px;
-    width: 70%;
+    width: 50%;
 }
 table td {
     vertical-align: top;
 }
 div.second-area {
     margin: 10px;
-    width: 40%;
+    width: 50%;
 }
 div.footer {
     background-color: gray;
