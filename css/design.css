@@ -41,6 +41,11 @@ table td {
     margin: 0px;
     border-width: 0px;
 }
+table tr {
+    vertical-align: top;
+    margin: 0px;
+    border-width: 0px;
+}
 div.second-area {
     text-align: right;
     margin: 0px;
