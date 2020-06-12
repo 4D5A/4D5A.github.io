@@ -13,7 +13,7 @@ div.navigationbar {
     width: 80%;
     color: white;
     border-spacing: 5px;
-    padding: 5px;
+    padding: 20px;
 }
 div.navigationbar form {
     display: block;
