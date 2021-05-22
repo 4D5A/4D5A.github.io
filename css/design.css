@@ -54,13 +54,13 @@ div.right-sidebar {
     width: 100%;
 }
 div.footer {
-    background-color: red;
+    background-color: gray;
     border-collapse: separate;
-    height: 2%;
+    height: auto;
     width: 85%;
     color: black;
     border-spacing: 5px;
-    /* padding: 20px; */
+    padding: 0px
 }
 body {
    background-color: white; 
