@@ -76,3 +76,8 @@ div.footer {
 body {
    background-color: white; 
 }
+div.rectangle {
+    background-color: white;
+    border-color: grey;
+    width:fit-content;
+}
