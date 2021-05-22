@@ -36,10 +36,16 @@ div.title {
     margin: 10px;
     width: 70%;
 }
+div.content {
+    text-align: left;
+    margin-left: auto;
+    width: 85%;
+    margin: 10px; 
+}
 div.main-area {
     text-align: left;
     margin-left: auto;
-    width: 100%;
+    width: 50%;
     margin: 10px;
 }
 table td {
@@ -55,7 +61,7 @@ table tr {
 div.right-sidebar {
     text-align: left;
     margin: 10px;
-    width: 40%;
+    width: 50%;
 }
 div.footer {
     background-color: gray;
