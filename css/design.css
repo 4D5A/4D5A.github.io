@@ -13,7 +13,7 @@ div.navigationbar {
     width: 85%;
     color: white;
     border-spacing: 5px;
-    padding: 15px;
+    padding: 0px;
 }
 td, th {
     padding-left: 15px;
@@ -70,7 +70,7 @@ div.footer {
     width: 85%;
     color: black;
     border-spacing: 5px;
-    padding: 15px
+    padding: 0px;
 }
 body {
    background-color: white; 
