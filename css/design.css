@@ -39,7 +39,7 @@ div.title {
 div.main-area {
     text-align: left;
     margin-left: auto;
-    width: 85%;
+    width: 60%;
     margin: 10px;
 }
 table td {
@@ -55,7 +55,7 @@ table tr {
 div.right-sidebar {
     text-align: left;
     margin: 40px;
-    width: 100%;
+    width: 40%;
 }
 div.footer {
     background-color: gray;
