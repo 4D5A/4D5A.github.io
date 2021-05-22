@@ -13,7 +13,7 @@ div.navigationbar {
     width: 85%;
     color: white;
     border-spacing: 5px;
-    padding: 20px;
+    padding: 0px;
 }
 div.navigationbar form {
     display: block;
@@ -35,7 +35,7 @@ div.title {
 div.main-area {
     text-align: left;
     margin-left: auto;
-    width: 70%;
+    width: 85%;
     margin: 10px;
 }
 table td {
