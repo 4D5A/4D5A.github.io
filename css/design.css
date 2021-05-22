@@ -80,4 +80,5 @@ div.rectangle {
     background-color: white;
     border-color: grey;
     width:fit-content;
+    border-spacing: 10px;
 }
