@@ -78,7 +78,8 @@ body {
 }
 div.rectangle {
     background-color: white;
+    border-collapse: seperate;
     border-color: grey;
-    width:fit-content;
     border-spacing: 10px;
+    width:fit-content;
 }
