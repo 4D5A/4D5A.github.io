@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Antisyphon Flash CTF 3 - Dauntless Defacement
+thumbnail-img: 'assets/img/2022-09-14-antisyphon-flash-ctf3-2022-defacement/antisyphon-flash-ctf3-2022-defacement-wireshark-tcp-stream-8-screenshot.png'
 gh-repo: 4D5A
 gh-badge: [follow]
 categories: [ctfwriteups]
