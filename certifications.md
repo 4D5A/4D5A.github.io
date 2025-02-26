@@ -62,4 +62,4 @@ subtitle:
 
 **WatchGuard**
 
-* 
+* Network Security Essentials for Locally-Managed Fireboxes
