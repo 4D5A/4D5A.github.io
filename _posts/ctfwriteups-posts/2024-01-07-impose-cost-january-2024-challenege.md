@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Impose Cost January 2024 Challenge
+thumbnail-img: 'assets/img/2024-01-07-impose-cost-january-2024-challenge/2024-01-07-impose-cost-january-2024-challenge-screenshot.png'
 gh-repo: 4D5A
 gh-badge: [follow]
 categories: [ctfwriteups]
