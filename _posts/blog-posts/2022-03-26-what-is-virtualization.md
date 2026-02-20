@@ -1,0 +1,38 @@
+---
+layout: post
+title: What is virtualization
+gh-repo: 4D5A
+gh-badge: [follow]
+categories: [blog]
+tags: [Information Technology, Virtualization]
+after-content: [disclaimer-notice.html]
+---
+As we start the year 2022, many people in technology refer to “virtual” servers, and “virtual” private servers (VPS), and “virtual” machines. What are these platforms, what makes them virtual, and what someone use them for?
+
+Virtual refers to a system that is run using emulated hardware on top of physical hardware. If you need to run four servers, but only have one physical server, you can use virtualization to make this possible. The physical hardware would run special software called a hypervisor. Examples of hypervisors include Oracle’s VirtualBox, VMWare’s ESXi and Microsoft’s Hyper-V.
+
+Once you have a physical server and install a hypervisor on it, you can create your first virtual machine (VM). To create a VM, you will need to provide the hypervisor information on what virtualized hardware you want to use. You should keep in mind that the virtual resources you are allocating to each virtual machine are taken from the physical resources of the physical server. It is possible for you to over allocate virtual machines by giving them more virtual resources than exist in the physical server so you should exercise caution in how you create the virtual machines. If your physical server has 32 GB of RAM and you create four VMs, you could allocate 8 GB of RAM to each of the four VMs but that would not leave any RAM for the physical server which needs to run the hypervisor software. Most virtualization programs give you the ability to choose between static and dynamic RAM allocation for VMs, so as long as your four VMs did not all use their full 8 GB of RAM at the same time, that may work. My preference is to statically allocate virtual resources to VMs. This ensures each VM starts with the resources I specified and does not need to make virtual hardware changes while the system is running and it makes it easier to track how much RAM and drive space is still available to use on the physical server or on other VMs.
+
+Before you create a VM, you will need installation media for whatever OS you choose for it to run. If you want to create an Ubuntu desktop VM, you would need to download the Ubuntu desktop ISO from [Ubuntu’s official website](https://ubuntu.com/download/desktop).
+
+***
+
+If you choose to use Windows 10 or Windows 11 with the Hyper-V feature installed as your hypervisor, then you can use Quick Create to have Hyper-V automatically download and install Ubuntu or Windows and setup the virtual machine. Once Quick Create creates the virtual machine, you can edit the settings.
+
+{% comment %}
+Click [here]({{ site.baseurl }}{% post_url 2021-12-26-how-to-create-a-windows-11-dev-environment %}) to read my post on how to use Hyper-V’s Quick Create.
+{% endcomment %}
+
+***
+
+Virtualization can be used to convert a physical server to a virtual server which may be important if the physical server runs a critical service but it beginning to fail (or just if you want to change what physical hardware the critical service runs on without reinstalling everything or trying to clone disk). This is often done to migrate from an on-premises service to a cloud service, but as an in-between stage where the service is no longer running on a bare metal server, but is a virtual server instead. Converting a bare metal server to a virtual server may be particularly helpful if you intend on migrating the virtual machine to a cloud hosting service such as Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure.
+
+Another reason for using virtual servers is that various virtualization technology including VMWare’s vSphere and Microsoft’s Hyper-V give you the flexibility to use multiple hosts that control a number of virtual machines and a disk array that stores the virtual drive files (vmdk, vdi, vhd, vhdx, etc.) so if one host fails or needs to be taken offline to perform maintenance, that the virtual machine can be transferred to another host (while the virtual drive files exist on a separate disk array which each host can access) and the virtual machine can continue to be available.
+
+Many virtualization solutions also provide the ability to create a “snapshot” or “checkpoint” where the state of the virtual machine is saved separately and can be reverted to. You shouldn’t use a “snapshot” or “checkpoint” as a replacement for a backup because a “snapshot” or “checkpoint” is simply a differencing disk rather than an additional copy of information. You should always backup important information.
+
+>If you choose to restore a virtual machine to test a change, I recommend restoring the virtual machine to a different host on a different network to avoid conflicts, a possible network outage, and possible data loss.
+
+Using “snapshots” or “checkpoints” can be helpful to test a change to a system because that allows you to revert a virtual machine to its state before the change. Depending on the type of change you want to test, you may wish to restore a backup of a virtual server and make the change to the restored copy so it does not impact the one that is used for production. If you choose to restore a backup of a virtual server, you could chose to restore it to the same host (but if you do, you will need to be careful that you do not overwrite the running virtual server, that you change the ID of the virtual drive, and that you do change any network settings on the copy from the backup after it is restored and before you connect it to the virtual switch among other possible modifications) or a different host. I recommend restoring it to a different host on a different network to avoid conflicts, a possible network outage, and possible data loss. You can restore it to the same host but you need to know what you are doing and be careful in how you restore, configure, and use it. Depending on your backup product, it may support backing up a bare metal server and subsequently restoring the backup to a virtual server. If you are interested in doing that, you should be familiar with the features and limitations of your backup solution and the processing for restoring a backup of a bare metal server to a virtual server. If you restore a backup of a bare metal server to a virtual server, you still need to take care not to have both systems configured with the same network information started on the same network at the same time. If the server is offering services including but not limited to Microsoft Active Directory Services, Domain Name Services, Dynamic Host Control Protocol services, or other shared network services, you likely will want to have the restored copy of the server not connected to the network to which the production server is connected at all to avoid problems. You can also disconnect a virtual machine’s virtual network interface card from the virtual switch which if done correctly, has the same effect as disconnecting a network cable from a physical server (assuming there is only one network cable connecting the servers to the network).
+
+In summary, virtualization may offer a number of benefits including more efficient use of physical resources, migrating off of failing hardware, preparing to migrate a bare metal server to the cloud, or making changes to a production system. Using virtual servers can save time and money but make sure you back them up as well.

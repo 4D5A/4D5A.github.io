@@ -1,0 +1,59 @@
+/* --- Homelab Tiles --- */
+.homelab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center; /* centers tiles in each row */
+  margin-top: 20px;
+}
+
+.homelab-tile {
+  display: flex;                 /* make vertical flex container */
+  flex-direction: column;        /* stack thumb, title, count */
+  justify-content: space-between; /* pushes count to bottom */
+  width: 100%;
+  max-width: 300px;
+  text-decoration: none;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e1e1e;
+  transition: transform 0.2s ease;
+}
+
+.homelab-tile:hover {
+  transform: translateY(-5px);
+}
+
+.homelab-thumb {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.homelab-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.homelab-title {
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 65px; /* ensures all titles occupy same vertical space */
+}
+
+.homelab-count {
+  background-color: #9E9E9E;
+  color: white !important;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* --- Bonus: small screens --- */
+@media (max-width: 400px) {
+  .homelab-grid {
+    grid-template-columns: 1fr; /* 1 column on narrow screens */
+  }
+}

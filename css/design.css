@@ -1,0 +1,52 @@
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+h2 {
+    font-weight: bold;
+    text-align: left;
+}
+
+div.navigationbar {
+    background-color: black;
+    border-collapse: separate;
+    border-spacing: 5px;
+    margin: 10px;
+    width: 80%;
+    color: white;
+    padding: 5px;
+}
+div.navigationbar form {
+    display: block;
+    text-align: right;
+}
+div.navigationbar a:link {
+    color: white;
+}
+div.navigationbar a:visited {
+    color: white;
+}
+div.navigationbar a:active {
+    color: white;
+}
+div.main-area {
+    margin: 10px;
+    width: 70%;
+}
+table td {
+    vertical-align: top;
+}
+div.second-area {
+    margin: 10px;
+    width: 40%;
+}
+div.footer {
+    background-color: gray;
+    font-size: small;
+    font-weight: normal;
+    margin: 10px;
+    width: 80%;
+}
+body {
+   background-color: white; 
+}

@@ -1,0 +1,111 @@
+/* ===============================
+   Horizontal Timeline (Below Cards)
+   Without Individual Dots
+================================= */
+
+.timeline {
+  position: relative;
+  display: flex;
+  align-items: flex-start; /* cards on top */
+  overflow-x: auto;
+  padding: 60px 20px 80px 20px; /* space at bottom for line */
+  gap: 60px;
+  scroll-behavior: smooth;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: #00b3ff;
+  border-radius: 4px;
+}
+
+/* Timeline line below all cards */
+.timeline::before {
+  content: "";
+  position: absolute;
+  bottom: 20px; /* distance from card bottoms */
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #d1d5db; /* subtle gray line */
+  border-radius: 2px;
+  z-index: 0; /* behind cards */
+}
+
+/* Timeline items (cards) */
+.timeline-item {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 250px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Cards */
+.timeline-content {
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #222);
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 40px; /* leave space for line below */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Logos */
+.cert-logo img {
+  max-height: 60px;
+  max-width: 150px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+.category { background: #1f2937; color: #00b3ff; }
+.level.beginner { background: #1e3a8a; color: #93c5fd; }
+.level.intermediate { background: #065f46; color: #6ee7b7; }
+.level.advanced { background: #7f1d1d; color: #fca5a5; }
+
+/* Lists */
+.timeline-content ul {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.timeline-content li {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline {
+    padding: 60px 10px 80px 10px;
+    gap: 30px;
+  }
+  .timeline-content {
+    padding: 18px 12px;
+  }
+  .cert-logo img {
+    max-height: 50px;
+    max-width: 120px;
+  }
+}

@@ -1,0 +1,56 @@
+---
+layout: page
+---
+
+<h1>{{ page.title }}</h1>
+
+{%- assign category = page.category -%}
+{%- assign cat_posts = site.categories[category] | default: empty -%}
+
+{% if cat_posts.size > 0 %}
+<ul class="homelab-post-list" role="list">
+  {% for post in cat_posts %}
+    <li class="post-preview">
+      <article>
+
+        {%- capture thumbnail -%}
+          {% if post.thumbnail-img %}
+            {{ post.thumbnail-img }}
+          {% elsif post.cover-img %}
+            {% if post.cover-img.first %}
+              {{ post.cover-img[0].first.first }}
+            {% else %}
+              {{ post.cover-img }}
+            {% endif %}
+          {% endif %}
+        {% endcapture %}
+        {% assign thumbnail = thumbnail | strip %}
+
+        {% if thumbnail != "" %}
+        <div class="post-image">
+          <a href="{{ post.url | relative_url }}" aria-label="Thumbnail">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ post.title }}">
+          </a>
+        </div>
+        {% endif %}
+
+        <a href="{{ post.url | relative_url }}">
+          <h2>{{ post.title }}</h2>
+        </a>
+
+        <p class="post-meta">
+          Posted on {{ post.date | date: "%Y-%m-%d" }}
+        </p>
+
+        <div class="post-excerpt">
+          {{ post.excerpt | strip_html | truncatewords:50 }}
+          <a href="{{ post.url | relative_url }}">[Read More]</a>
+        </div>
+
+      </article>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>No projects yet in the "{{ category }}" category.</p>
+{% endif %}

@@ -1,0 +1,47 @@
+---
+layout: page
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/ctf.css' | relative_url }}">
+</head>
+<body>
+
+  {%- assign event_posts = site.posts | where:"event", page.event -%}
+
+  {% if event_posts.size > 0 %}
+  <ul class="ctf-post-list" role="list">
+    {% for post in event_posts %}
+      <li class="post-preview">
+        <article>
+          {% if post.thumbnail-img %}
+            <div class="post-image">
+              <a href="{{ post.url | relative_url }}">
+                <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}">
+              </a>
+            </div>
+          {% endif %}
+
+          <a href="{{ post.url | relative_url }}">
+            <h2>{{ post.title }}</h2>
+          </a>
+
+          <p class="post-meta">Posted on {{ post.date | date: "%Y-%m-%d" }}</p>
+
+          <div class="post-excerpt">
+            {{ post.excerpt | strip_html | truncatewords:50 }}
+            <a href="{{ post.url | relative_url }}">[Read More]</a>
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>No writeups yet for this event.</p>
+  {% endif %}
+</body>
+</html>

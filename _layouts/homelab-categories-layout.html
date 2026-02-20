@@ -1,0 +1,72 @@
+---
+layout: page
+---
+
+{%- comment -%}
+  Determine the category from the page's title.
+  Using title is safer than parsing the URL.
+{%- endcomment -%}
+{%- assign cat = page.title | downcase -%}
+{%- assign cat_posts = site.categories[cat] | default: empty -%}
+
+{% if cat_posts.size > 0 %}
+<ul class="homelab-post-list" role="list">
+  {% for post in cat_posts %}
+    <li class="post-preview">
+      <article>
+
+        {%- comment -%} Determine thumbnail image like CTF layout {%- endcomment -%}
+        {%- capture thumbnail -%}
+          {% if post.thumbnail-img %}
+            {{ post.thumbnail-img }}
+          {% elsif post.cover-img %}
+            {% if post.cover-img.first %}
+              {{ post.cover-img[0].first.first }}
+            {% else %}
+              {{ post.cover-img }}
+            {% endif %}
+          {% else %}
+            {% comment %} No image available {% endcomment %}
+          {% endif %}
+        {% endcapture %}
+        {% assign thumbnail = thumbnail | strip %}
+
+        {% if thumbnail != "" %}
+          <div class="post-image">
+            <a href="{{ post.url | relative_url }}" aria-label="Thumbnail">
+              <img src="{{ thumbnail | relative_url }}" alt="{{ post.title }}">
+            </a>
+          </div>
+        {% endif %}
+
+        <a href="{{ post.url | relative_url }}">
+          <h2>{{ post.title }}</h2>
+        </a>
+
+        <p class="post-meta">Posted on {{ post.date | date: "%Y-%m-%d" }}</p>
+
+        <div class="post-excerpt">
+          {{ post.excerpt | strip_html | truncatewords:50 }}
+          <a href="{{ post.url | relative_url }}">[Read More]</a>
+        </div>
+
+        {% if post.tags.size > 0 %}
+        <div class="blog-tags">
+          <span>Tags:</span>
+          <ul class="d-inline list-inline" role="list">
+            {% for tag in post.tags %}
+              <li class="list-inline-item">
+                <a href="{{ '/tags' | relative_url }}#{{ tag }}">{{ tag }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+      </article>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No projects yet in the "{{ cat }}" category.</p>
+{% endif %}
