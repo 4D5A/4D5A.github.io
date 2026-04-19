@@ -64,6 +64,8 @@ Here is what our updated package.json file looks like:
 >
 >~~~
 
+> **_PREFERRED METHOD:_** Instead of changing the port homepage is configured to listen on, you could also configure a reverse proxy using haproxy or nginx proxy manager.
+
 Then we need to build the node.js application and run it.<sup>1</sup>
 
 ```npm run build```

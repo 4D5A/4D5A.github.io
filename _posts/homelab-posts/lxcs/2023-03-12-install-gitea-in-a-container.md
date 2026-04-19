@@ -29,6 +29,8 @@ If you want to change the port Gitea listens on from 3000 to 80, you can edit th
 
 You need to change the HTTP_PORT from 3000 to 80 (or the port you want Gitea to listen on).
 
+> **_PREFERRED METHOD:_** Instead of changing the port Gitea is configured to listen on, you could also configure a reverse proxy using haproxy or nginx proxy manager.
+
 As a last step, I want to get the proxmox container to start gitea when it restarts. That takes us back to our first problem, that gitea needs to be run as gitea. Here are the commands to set nano as the text editor that will be used for crontab and to configure the proxmox container to switch user to gitea and start gitea after each reboot.
 
 ~~~
