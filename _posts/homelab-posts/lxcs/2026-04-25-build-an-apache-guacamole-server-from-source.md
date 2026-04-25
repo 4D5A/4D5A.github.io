@@ -6,8 +6,6 @@ tags: [container, linux, proxmox, apache-guacamole, tomcat, mariadb, java, rdp]
 after-content: [disclaimer-notice.html]
 ---
 
-# Setting Up Apache Guacamole on a Proxmox LXC Container (Debian 10 → Tomcat 10 → MariaDB)
-
 ## Introduction
 
 This document captures a full end-to-end installation of Apache Guacamole inside a Proxmox LXC container. The goal was to deploy a self-hosted remote access gateway supporting RDP (and later extensible to SSH/VNC), backed by MariaDB and running on Tomcat 10.
@@ -16,7 +14,6 @@ The process required resolving several compatibility issues across:
 
 - Java (JDK + build tools)
 - Maven build system
-- NodeJS frontend tooling
 - Tomcat 10 Jakarta EE migration
 - XRDP session stability on the target Kali Linux host
 
@@ -105,16 +102,7 @@ mvn clean install -Dmaven.javadoc.skip=true -DskipTests
 mvn package -Dmaven.javadoc.skip=true -DskipTests -pl '!guacamole-common-js'
 ```
 
-## 7. NodeJS Requirement
-
-NodeJS is required for:
-
-```bash
-npx jsdoc -c jsdoc-conf.json
-```
-This step is optional and can be skipped for production builds.
-
-## 8. Jakarta Migration (Tomcat 10 Fix)
+## 7. Jakarta Migration (Tomcat 10 Fix)
 ```bash
 wget https://archive.apache.org/dist/tomcat/jakartaee-migration/v1.0.8/binaries/jakartaee-migration-1.0.8-bin.tar.gz
 tar -xvzf jakartaee-migration-1.0.8-bin.tar.gz
@@ -125,9 +113,9 @@ java -jar lib/jakartaee-migration-1.0.8.jar \
 ~/guacamole-client-1.6.0/guacamole/target/guacamole-jakarta.war
 ```
 
-## 9. MariaDB Setup
+## 8. MariaDB Setup
 
-configure the database
+Configure the database
 ```sql
 sudo mysql_secure_installation
 sudo mysql -u root -p
@@ -144,7 +132,23 @@ cat ~/guacamole-client-1.6.0/extensions/guacamole-auth-jdbc/modules/guacamole-au
 | mysql -u guacadmin -p guacamole_db
 ```
 
-## 10. Authentication Extension
+Create a guacamole user
+```bash
+mysql -u guacadmin -pYOURSECUREPASSWORD guacamole_db
+```
+The example mysql commands below adds a gualamole user with the credentials "guacadmin/guacadmin".
+```sql
+INSERT INTO guacamole_entity (name, type) VALUES ('admin', 'USER');
+INSERT INTO guacamole_user (entity_id, password_hash, password_salt, password_date)
+VALUES (
+  LAST_INSERT_ID(),
+  UNHEX(SHA2('guacadmin', 256)),
+  NULL,
+  NOW()
+);
+```
+
+## 9. Authentication Extension
 
 ```bash
 cp guacamole-auth-jdbc-mysql-1.6.0.jar /etc/guacamole/extensions/
@@ -157,7 +161,7 @@ cp mysql-connector-j-8.4.0.jar /etc/guacamole/lib/
 cp /usr/share/java/mariadb-java-client.jar /etc/guacamole/lib/
 ```
 
-## 11. Configuration
+## 10. Configuration
 
 Change mysql-password from "YOURSECUREPASSWORD" to a secure password that you create.
 
@@ -174,7 +178,7 @@ mysql-password: YOURSECUREPASSWORD
 mysql-ssl-mode: disabled
 ```
 
-## 12. Services
+## 11. Services
 
 ```bash
 systemctl restart guacd
@@ -188,24 +192,7 @@ ExecStart=
 ExecStart=/usr/local/sbin/guacd -b 127.0.0.1 -f
 ```
 
-## 13. Create a guacamole user
-
-```bash
-mysql -u guacadmin -pYOURSECUREPASSWORD guacamole_db
-```
-The example mysql commands below adds a gualamole user with the credentials "guacadmin/guacadmin".
-```sql
-INSERT INTO guacamole_entity (name, type) VALUES ('admin', 'USER');
-INSERT INTO guacamole_user (entity_id, password_hash, password_salt, password_date)
-VALUES (
-  LAST_INSERT_ID(),
-  UNHEX(SHA2('guacadmin', 256)),
-  NULL,
-  NOW()
-);
-```
-
-## 14. RDP Issue (Kali Linux)
+## 12. RDP Issue (Kali Linux)
 Symptoms:
 
 Brief connection
@@ -218,7 +205,7 @@ Internal RDP client disconnected
 Connection closed
 ```
 
-## 15. XRDP Fix
+## 13. XRDP Fix
 
 ```bash
 nano /etc/xrdp/startwm.sh
@@ -237,3 +224,7 @@ startxfce4
 ```/bash
 sudo systemctl restart xrdp xrdp-sesman
 ```
+
+## 14. Verify that everything is working
+
+Login to Guacamole and connect to a VM.
