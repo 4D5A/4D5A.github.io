@@ -8,6 +8,60 @@ after-content: [disclaimer-notice.html]
 
 ## Introduction
 
+This started as an effort to use Guacamole to provide browser-based access to a Kali linux VM located in a different VLAN and to use an existing haproxy reverse proxy server instead of using Guacamole's nginx reverse proxy server.
+
+PC (VLAN 1) -> haproxy eth0 (VLAN 1) -> haproxy eth1 (VLAN 50) -> Guacamole eth0 (VLAN 50) -> Guacamole eth1 (VLAN 10) -> Kali (VLAN 10)
+
+What I expected would be an hour of work or less, ended up taking several hours as I repeatedly encountered obstacles.
+
+While Apache provides a compiled version of guacamole-client, they do not offer a compile version of guacamole-server and both are necessary for this to work. [https://guacamole.apache.org/releases/1.6.0/](https://guacamole.apache.org/releases/1.6.0/) Obstacle number one.
+
+No problem, there is documentation on installing guacamole-client and guacamole-server through Docker. [https://guacamole.apache.org/doc/gug/guacamole-docker.html](https://guacamole.apache.org/doc/gug/guacamole-docker.html). I chose to use Docker Compose with Portainer to deploy the stack. You can review the Docker Compose file at [https://github.com/4D5A/docker/blob/main/compose-configurations/apache-guacamole/docker-compose.yml](https://github.com/4D5A/docker/blob/main/compose-configurations/apache-guacamole/docker-compose.yml).
+
+There is an "Important" note about setting up Postgres or MySQL/mariadb in [https://guacamole.apache.org/doc/gug/guacamole-docker.html](https://guacamole.apache.org/doc/gug/guacamole-docker.html)
+
+```
+If using PostgreSQL or MySQL for authentication, you will need to initialize the database manually. Guacamole will not automatically create its own tables, but SQL scripts are provided to do this.```
+
+The importance of this information cannot be understated. It is easy to read past and one does at one's own peril (or at least at the risk of wasting hours of time). As the note states, when you deploy the stack, Guacamole will create its database as shown in the Docker Compose file, but "will not automatically create its own tables." Because the tables are not created, the database schema is also missing. Thanks to this [Deploy Apache Guacamole with Docker Compose article](https://computingforgeeks.com/deploy-guacamole-docker-compose/), I found the information I needed to initialize the database. Apache also provides instructions for database intialization at the following URIs.
+
+|Database|URI|
+|MariaDB or MySQL|[https://guacamole.apache.org/doc/gug/mysql-auth.html](https://guacamole.apache.org/doc/gug/mysql-auth.html)|
+|PostgreSQL|[https://guacamole.apache.org/doc/gug/postgresql-auth.html](https://guacamole.apache.org/doc/gug/postgresql-auth.html)|
+|SQL Server|[https://guacamole.apache.org/doc/gug/sqlserver-auth.html](https://guacamole.apache.org/doc/gug/sqlserver-auth.html)|
+
+The purpose of this command is to create a directory for docker to extract the database schema from the guacamole Docker image, save it in /opt/guacamole/init, and use the .sql file to create the database schema in the Postgres or MySQL/mariadb database.
+
+```bash
+sudo mkdir -p /opt/guacamole/init
+cd /opt/guacamole
+sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --mysql | sudo tee init/01-schema.sql > /dev/null
+```
+Whether you need to include "sudo" in the above docker command depends on your Docker server configuration, if you are using root, a non-root user with sudo privileges, rootless, etc.
+
+Another important piece of information is the initialization must be done before you deploy the stack. If you deploy the stack first, you will need to delete the stack, initialize the database, and re-create the stack. Alternatively, you can stop the Postgres or MySQL/mariadb container in the stack, delete the database's docker volume, initialize the database, and re-deploy the stack.
+
+The next obstacle was that Guacamole does not include any users so you will not be able to login. At this point, I just wanted to be able to login, so I logged into MySQL and created the user.
+
+```sql
+mysql -u guacadmin -p guacamole_db
+
+INSERT INTO guacamole_entity (name, type) VALUES ('admin', 'USER');
+INSERT INTO guacamole_user (entity_id, password_hash, password_salt, password_date)
+VALUES (
+  LAST_INSERT_ID(),
+  UNHEX(SHA2('guacadmin', 256)),
+  NULL,
+  NOW()
+);
+```
+
+This allowed me to login, but because my stack was running on a Docker server in VLAN 50 and outbound traffic is translated from the stack's network to the Docker server's ethernet adapter, there wasn't a good method of accessing the stack through my existing haproxy. Even if I solved that issue, I would need to make it possible for Guacamole to connect to the VM in VLAN 10.
+
+After thinking through the issue, I determined the best answer would be to run Guacamole (guacamole-client, guacamole-server, and mariadb) on a Proxmox LXC. That way I could tag the LXC's eth0 ethernet adapter as VLAN 50, access it through the existing haproxy reverse proxy, and add a second ethernet adapter (eth1) that would be configured to connect to VLAN 10.
+
+## Building guacamole from source
+
 This document captures a full end-to-end installation of Apache Guacamole inside a Proxmox LXC container. The goal was to deploy a self-hosted remote access gateway supporting RDP (and later extensible to SSH/VNC), backed by MariaDB and running on Tomcat 10.
 
 The process required resolving several compatibility issues across:
@@ -21,9 +75,9 @@ By the end, Guacamole was fully operational and able to connect reliably to remo
 
 ---
 
-## 1. Proxmox LXC Container Setup
+### 1. Proxmox LXC Container Setup
 
-A Debian 10 (Buster) template was used as the base container.
+An Ubuntu 24.04-2 (Noble Numbat) template was used as the base container.
 
 **Container configuration:**
 - Hostname: `guacamole`
@@ -32,7 +86,7 @@ A Debian 10 (Buster) template was used as the base container.
 
 ---
 
-## 2. Installing System Dependencies
+### 2. Installing System Dependencies
 
 ```bash
 apt update && apt upgrade -y
@@ -52,7 +106,7 @@ adduser user
 usermod -aG sudo user
 ```
 
-## 3. Building guacd
+### 3. Building guacd
 
 ```bash
 git clone https://github.com/apache/guacamole-server.git
@@ -65,7 +119,7 @@ make install
 ldconfig
 ```
 
-## 4. Tomcat 10 Deployment Issue
+### 4. Tomcat 10 Deployment Issue
 
 ```bash
 wget -O guacamole.war \
@@ -77,7 +131,7 @@ Problem
 
 Tomcat 10 requires Jakarta EE (jakarta.*), but Guacamole 1.6.0 uses javax.*.
 
-## 5. Java Setup
+### 5. Java Setup
 
 ```bash
 update-alternatives --config java
@@ -87,7 +141,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
-## 6. Building guacamole-client
+### 6. Building guacamole-client
 
 ```bash
 wget https://apache.org/dyn/closer.lua/guacamole/1.6.0/source/guacamole-client-1.6.0.tar.gz
@@ -102,7 +156,7 @@ mvn clean install -Dmaven.javadoc.skip=true -DskipTests
 mvn package -Dmaven.javadoc.skip=true -DskipTests -pl '!guacamole-common-js'
 ```
 
-## 7. Jakarta Migration (Tomcat 10 Fix)
+### 7. Jakarta Migration (Tomcat 10 Fix)
 ```bash
 wget https://archive.apache.org/dist/tomcat/jakartaee-migration/v1.0.8/binaries/jakartaee-migration-1.0.8-bin.tar.gz
 tar -xvzf jakartaee-migration-1.0.8-bin.tar.gz
@@ -111,9 +165,12 @@ cd jakartaee-migration-1.0.8
 java -jar lib/jakartaee-migration-1.0.8.jar \
 ~/guacamole-client-1.6.0/guacamole/target/guacamole-1.6.0.war \
 ~/guacamole-client-1.6.0/guacamole/target/guacamole-jakarta.war
+
+sudo cp ~/guacamole-client-1.6.0/guacamole/target/guacamole-jakarta.war \
+/var/lib/tomcat10/webapps/guacamole.war
 ```
 
-## 8. MariaDB Setup
+### 8. MariaDB Setup
 
 Configure the database
 ```sql
@@ -148,7 +205,7 @@ VALUES (
 );
 ```
 
-## 9. Authentication Extension
+### 9. Authentication Extension
 
 ```bash
 cp guacamole-auth-jdbc-mysql-1.6.0.jar /etc/guacamole/extensions/
@@ -161,7 +218,7 @@ cp mysql-connector-j-8.4.0.jar /etc/guacamole/lib/
 cp /usr/share/java/mariadb-java-client.jar /etc/guacamole/lib/
 ```
 
-## 10. Configuration
+### 10. Configuration
 
 Change mysql-password from "YOURSECUREPASSWORD" to a secure password that you create.
 
@@ -178,7 +235,7 @@ mysql-password: YOURSECUREPASSWORD
 mysql-ssl-mode: disabled
 ```
 
-## 11. Services
+### 11. Services
 
 ```bash
 systemctl restart guacd
@@ -192,7 +249,7 @@ ExecStart=
 ExecStart=/usr/local/sbin/guacd -b 127.0.0.1 -f
 ```
 
-## 12. RDP Issue (Kali Linux)
+### 12. RDP Issue (Kali Linux)
 Symptoms:
 
 Brief connection
@@ -205,7 +262,7 @@ Internal RDP client disconnected
 Connection closed
 ```
 
-## 13. XRDP Fix
+### 13. XRDP Fix
 
 ```bash
 nano /etc/xrdp/startwm.sh
@@ -225,6 +282,6 @@ startxfce4
 sudo systemctl restart xrdp xrdp-sesman
 ```
 
-## 14. Verify that everything is working
+### 14. Verify that everything is working
 
 Login to Guacamole and connect to a VM.
