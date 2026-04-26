@@ -20,9 +20,8 @@ No problem, there is documentation on installing guacamole-client and guacamole-
 
 There is an "Important" note about setting up Postgres or MySQL/mariadb in [https://guacamole.apache.org/doc/gug/guacamole-docker.html](https://guacamole.apache.org/doc/gug/guacamole-docker.html)
 
-```
-If using PostgreSQL or MySQL for authentication, you will need to initialize the database manually. Guacamole will not automatically create its own tables, but SQL scripts are provided to do this.
-```
+
+>If using PostgreSQL or MySQL for authentication, you will need to initialize the database manually. Guacamole will not automatically create its own tables, but SQL scripts are provided to do this.
 
 The importance of this information cannot be understated. It is easy to read past and one does at one's own peril (or at least at the risk of wasting hours of time). As the note states, when you deploy the stack, Guacamole will create its database as shown in the Docker Compose file, but "will not automatically create its own tables." Because the tables are not created, the database schema is also missing. Thanks to this [Deploy Apache Guacamole with Docker Compose article](https://computingforgeeks.com/deploy-guacamole-docker-compose/), I found the information I needed to initialize the database. Apache also provides instructions for database intialization at the following URIs.
 
