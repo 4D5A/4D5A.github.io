@@ -263,11 +263,12 @@ Connection closed
 ```
 
 ### 13. XRDP Fix
-
+Edit the script xrdp uses to initiate the desktop environment.
 ```bash
 nano /etc/xrdp/startwm.sh
 ```
 
+Below is what worked for me.
 ```bash
 #!/bin/sh
 
@@ -277,8 +278,8 @@ fi
 
 startxfce4
 ```
-
-```/bash
+Restart the xrdp and xrdp session manager services.
+```bash
 sudo systemctl restart xrdp xrdp-sesman
 ```
 
