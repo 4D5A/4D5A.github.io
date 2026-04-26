@@ -8,9 +8,9 @@ after-content: [disclaimer-notice.html]
 
 ## Introduction
 
-This started as an effort to use Guacamole to provide browser-based access to a Kali linux VM located in a different VLAN and to use an existing haproxy reverse proxy server instead of using Guacamole's nginx reverse proxy server.
+This started as an effort to use Guacamole to provide browser-based access to a VM located in a different VLAN with RDP and to use an existing haproxy reverse proxy server instead of using Guacamole's nginx reverse proxy server.
 
-PC (VLAN 1) -> haproxy eth0 (VLAN 1) -> haproxy eth1 (VLAN 50) -> Guacamole eth0 (VLAN 50) -> Guacamole eth1 (VLAN 10) -> Kali (VLAN 10)
+PC (VLAN 1) -> haproxy eth0 (VLAN 1) -> haproxy eth1 (VLAN 50) -> Guacamole eth0 (VLAN 50) -> Guacamole eth1 (VLAN 10) -> VM accessed with RDP (VLAN 10)
 
 What I expected would be an hour of work or less, ended up taking several hours as I repeatedly encountered obstacles.
 
@@ -69,7 +69,7 @@ The process required resolving several compatibility issues across:
 - Java (JDK + build tools)
 - Maven build system
 - Tomcat 10 Jakarta EE migration
-- XRDP session stability on the target Kali Linux host
+- XRDP session stability on the target VM
 
 By the end, Guacamole was fully operational and able to connect reliably to remote desktop sessions.
 
@@ -249,7 +249,7 @@ ExecStart=
 ExecStart=/usr/local/sbin/guacd -b 127.0.0.1 -f
 ```
 
-### 12. RDP Issue (Kali Linux)
+### 12. RDP Issue
 Symptoms:
 
 Brief connection
