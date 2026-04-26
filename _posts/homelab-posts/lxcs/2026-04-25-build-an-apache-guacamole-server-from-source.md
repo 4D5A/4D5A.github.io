@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting Up Apache Guacamole on a Proxmox LXC Container (Ubuntu 24.04-2 → Tomcat 10 → MariaDB)
+title: Setting Up Apache Guacamole on a Proxmox LXC Container using Ubuntu 24.04-2, Tomcat 10 and MariaDB)
 categories: [homelab, lxcs]
 tags: [container, linux, proxmox, apache-guacamole, tomcat, mariadb, java, rdp]
 after-content: [disclaimer-notice.html]
