@@ -243,8 +243,13 @@ systemctl restart tomcat10
 ```
 
 Bind guacd:
+
+```sudo nano /usr/local/lib/systemd/system/guacd.service```
+
 ```ini
 [Service]
+User=user
+Group=user
 ExecStart=
 ExecStart=/usr/local/sbin/guacd -b 127.0.0.1 -f
 ```
