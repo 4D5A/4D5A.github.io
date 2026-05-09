@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create an Ubuntu LXC
+title: "Lab 2: Create an Ubuntu LXC"
 categories: [labs, proxmox]
 tags: [linux, proxmox]
 after-content: [disclaimer-notice.html]
