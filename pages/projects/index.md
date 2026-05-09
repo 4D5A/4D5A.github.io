@@ -10,7 +10,6 @@ full-width: true
 <div class="projects-grid">
 
   {%- assign categories_to_show = 
-      <!-- "blueteam:Blue Team,redteam:Red Team" -->
       "blueteam:Blue Team"
       | split: "," -%}
 
