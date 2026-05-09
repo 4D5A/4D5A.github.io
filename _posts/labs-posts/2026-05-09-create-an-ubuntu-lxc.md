@@ -70,10 +70,10 @@ This is lab number 2 in this series. If you have not already completed the previ
 21. Congratulations, you are logged into a proxmox LXC emulating Ubuntu 24.04. Let's update Ubuntu 24.04.
 22. Run the commands below.
 
-~~~bash
-apt get update
-apt get upgrade -y
-~~~
+    ~~~bash
+    apt get update
+    apt get upgrade -y
+    ~~~
 
 23. Run the command ```reboot now!``` to reboot your LXC.
 24. Next let's install an nginx web server with the command ```apt get install nginx -y```.
