@@ -62,7 +62,7 @@ This is lab number 2 in this series. If you have not already completed the previ
 
 14. Click "Confirm".
 15. Click "Finish".
-16. Expand the node.
+16. Expand your node.
 17. Click your LXC.
 18. Click "Console".
 19. Click "Start".
