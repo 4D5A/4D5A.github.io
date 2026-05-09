@@ -44,7 +44,7 @@ This is lab number 2 in this series. If you have not already completed the previ
     - Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
     Disks
     - Storage: Choose where your LXCs virtual storage will be located
-    - Disk size (GiB):
+    - Disk size (GiB): 8
     CPU
     - Cores: 1
     - CPU Limit: unlimited
