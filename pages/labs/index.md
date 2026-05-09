@@ -1,5 +1,5 @@
 ---
-layout: homelab-categories-layout
+layout: labs-layout
 title: Labs
 permalink: /labs/
 ---
