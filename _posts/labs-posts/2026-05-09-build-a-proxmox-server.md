@@ -5,6 +5,8 @@ categories: [labs, proxmox]
 tags: [linux, proxmox]
 after-content: [disclaimer-notice.html]
 ---
+This is lab number 1 in this series.
+
 Proxmox is a type 1 hypervisor meaning the proxmox OS that runs on a linux kernel is installed on bare metal hardware. A hypervisor allows you to run virtualized computers. If you have ever wanted to setup multiple computers but didn't have enough desktops for that, virtualization is what you want. Using a hypervisor, you can install one virtual machine running Windows 11, another running Windows Server 2025 Standard, and another Ubuntu. While how many virtual machines you can run on your hypervisor and how much virtual drive space, virtual CPU, and virtual RAM you can allocate to them is limited by your hypervisor's hardware, you can easily run proxmox and a few Linux Containers (LXCs) on a micro form factor PC with an i5 processor and 4 GB of RAM if that is what you currently have.
 
 Linux Containers or LXCs are another virtualization option. LXCs are typically used to virtualize one or more applications without needing to install a dedicated operating system. Since proxmox is built on the linux kernel, you can create LXCs that will run linux avoiding the need for you to create a virtual machine and install a full linux operating system inside of it. You can install and configure applications on your LXCs, set each LXC to emulate a different linux distribution through the use of proxmox templates, while keeping each LXCs "OS" and application configurations seperate. 
