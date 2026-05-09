@@ -26,39 +26,39 @@ This is lab number 2 in this series. If you have not already completed the previ
 12. Right click on your proxmox node (The default name is "pve".)
 13. Click "Create CT".
 
- Now comes the fun part. Now you need to configure the virtual hardware and choose which linux distribution the LXC will emulate (we will use Ubuntu 24.04 for this lab).
+    Now comes the fun part. Now you need to configure the virtual hardware and choose which linux distribution the LXC will emulate (we will use Ubuntu 24.04 for this lab).
 
- Use the following settings:
+    Use the following settings:
 
- General
- - Node: pve
- - CT ID: 100
-     Hostname: lab1-ubuntu
-     Unprivileged container: Checked
-     Nesting: Unchecked
-     Resource Pool: Leave blank
-     Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
-     Confirm password: Re-enter your unique, complex password.
- Template
-     Storage: Choose where your LXCs virtual storage will be located
-     Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
- Disks
-     Storage:
-     Disk size (GiB):
- CPU
-     Cores: 1
-     CPU Limit: unlimited
-     CPU Units: 100
- Memory
-     Memory (MiB): 512
-     Swap (MiB): 512
- Network
-     Name: eth0
-     MAC address: auto
-     Bridge: vmbr0
-     VLAN Tag: no VLAN
-     Firewall: Checked
-     IPv4: DHCP
+    General
+    - Node: pve
+    - CT ID: 100
+    - Hostname: lab1-ubuntu
+    - Unprivileged container: Checked
+    - Nesting: Unchecked
+    - Resource Pool: Leave blank
+    - Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
+    - Confirm password: Re-enter your unique, complex password.
+    Template
+        Storage: Choose where your LXCs virtual storage will be located
+        Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+    Disks
+        Storage:
+        Disk size (GiB):
+    CPU
+        Cores: 1
+        CPU Limit: unlimited
+        CPU Units: 100
+    Memory
+        Memory (MiB): 512
+        Swap (MiB): 512
+    Network
+        Name: eth0
+        MAC address: auto
+        Bridge: vmbr0
+        VLAN Tag: no VLAN
+        Firewall: Checked
+        IPv4: DHCP
 
 14. Click "Confirm".
 15. Click "Finish".
