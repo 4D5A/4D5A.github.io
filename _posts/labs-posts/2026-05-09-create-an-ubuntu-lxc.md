@@ -39,19 +39,24 @@ General
     Resource Pool: Leave blank
     Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
     Confirm password: Re-enter your unique, complex password.
+
 Template
     Storage: Choose where your LXCs virtual storage will be located
     Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+
 Disks
     Storage:
     Disk size (GiB):
+
 CPU
     Cores: 1
     CPU Limit: unlimited
     CPU Units: 100
+
 Memory
     Memory (MiB): 512
     Swap (MiB): 512
+
 Network
     Name: eth0
     MAC address: auto
@@ -80,7 +85,7 @@ apt get upgrade -y
 23. Run the command ```reboot now!``` to reboot your LXC.
 24. Next let's install an nginx web server with the command ```apt get install nginx -y```.
 25. Run the command ```ip a``` to find your LXCs IP address.
-26. On your management system, browse to [http://your-lxcs-ip-address](http://your-lxcs-ip-address).
+26. On your management system, browse to http://your-lxcs-ip-address.
 27. Congratulations, you now have an LXC emulating Ubuntu 24.04 that is running an nginx web server.
 
 >Tip: Be aware that if you did not connect the LXC to a VLAN, it may be running on the same network your management system is connected to. While this may simplify access, it is important that you properly secure all lab infrastructure including your proxmox server and LXCs. A security best practice is to place servers in their own VLAN. Infrastructure management interfaces should be in a seperate VLAN. While you might think threat actors are not interested in attacking your lab infrastructure, there are examples of that taking place. Because each network is a unique environment, recommending specific network designs or security configurations is outside the scope of these labs. Please ensure you are properly securing your environment as you alone are responsible for your network security.
