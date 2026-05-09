@@ -31,8 +31,8 @@ Now comes the fun part. Now you need to configure the virtual hardware and choos
 Use the following settings:
 
 General
-    Node: pve
-    CT ID: 100
+- Node: pve
+- CT ID: 100
     Hostname: lab1-ubuntu
     Unprivileged container: Checked
     Nesting: Unchecked
