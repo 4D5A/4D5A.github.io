@@ -40,11 +40,11 @@ This is lab number 2 in this series. If you have not already completed the previ
     - Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
     - Confirm password: Re-enter your unique, complex password.
     Template
-    - Storage: Choose where your LXCs virtual storage will be located
+    - Storage: Pick the storage path where "Container Templates" are stored. This is the same storage path as the one identified in step 4 above.
     - Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
     
     Disks
-    - Storage:
+    - Storage: Choose where your LXCs virtual storage will be located
     - Disk size (GiB):
     
     CPU
