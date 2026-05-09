@@ -7,7 +7,7 @@ css: /assets/css/certifications-vertical-alternating-left-right.css
 full-width: true
 ---
 
-Note: Some of my certifications below may be expired or are no longer offered by the issuing organization.
+Note: Some of my certifications shown below may be expired or are no longer offered by the issuing organization.
 
 <div class="timeline">
 
