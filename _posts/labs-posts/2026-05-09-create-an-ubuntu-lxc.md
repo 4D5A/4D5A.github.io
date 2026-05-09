@@ -80,7 +80,7 @@ apt get update
 apt get upgrade -y
 ~~~
 
-    >Hint: ```apt get update``` will check for updates for the programs installed on your linux system. ```apt get upgrade -y``` will install them without being prompted for confirmation. You can combine these commands by entering **apt get update && apt get upgrade -y**.
+>Hint: ```apt get update``` will check for updates for the programs installed on your linux system. ```apt get upgrade -y``` will install them without being prompted for confirmation. You can combine these commands by entering **apt get update && apt get upgrade -y**.
 
 23. Run the command ```reboot now!``` to reboot your LXC.
 24. Next let's install an nginx web server with the command ```apt get install nginx -y```.
