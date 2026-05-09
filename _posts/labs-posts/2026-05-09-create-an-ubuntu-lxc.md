@@ -5,7 +5,7 @@ categories: [labs, proxmox]
 tags: [linux, proxmox]
 after-content: [disclaimer-notice.html]
 ---
-This is lab number 2 in this series. If you have not already completed the previous lab, please start at [2026-05-09-build-a-proxmox-server](2026-05-09-build-a-proxmox-server).
+This is lab number 2 in this series. If you have not already completed the previous lab, please start at [Lab 1: Create a proxmox server](https://4d5a.github.io/2026-05-09-build-a-proxmox-server/).
 
 1. Login to your proxmox server.
 2. Click "Datacenter".
