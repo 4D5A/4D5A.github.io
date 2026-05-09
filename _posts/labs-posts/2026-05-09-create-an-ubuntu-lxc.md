@@ -30,7 +30,7 @@ This is lab number 2 in this series. If you have not already completed the previ
 
     Use the following settings:
 
-    General
+    **General**
     - Node: pve
     - CT ID: 100
     - Hostname: lab1-ubuntu
