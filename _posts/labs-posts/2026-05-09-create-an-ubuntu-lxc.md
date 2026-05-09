@@ -30,41 +30,35 @@ This is lab number 2 in this series. If you have not already completed the previ
 
     Use the following settings:
 
-    General
-    - Node: pve
-    - CT ID: 100
-    - Hostname: lab1-ubuntu
-    - Unprivileged container: Checked
-    - Nesting: Unchecked
-    - Resource Pool: Leave blank
-    - Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
-    - Confirm password: Re-enter your unique, complex password.
-    
-    Template
-    - Storage: Pick the storage path where "Container Templates" are stored. This is the same storage path as the one identified in step 4 above.
-    - Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
-    
-    Disks
-    - Storage: Choose where your LXCs virtual storage will be located
-    - Disk size (GiB): 8
-    
-    CPU
-    - Cores: 1
-    - CPU Limit: unlimited
-    - CPU Units: 100
-    
-    Memory
-    - Memory (MiB): 512
-    - Swap (MiB): 512
-    
-    Network
-    - Name: eth0
-    - MAC address: auto
-    - Bridge: vmbr0
-    - VLAN Tag: no VLAN
-    - Firewall: Checked
-    - IPv4: DHCP
- 
+    - General
+     - Node: pve
+     - CT ID: 100
+     - Hostname: lab1-ubuntu
+     - Unprivileged container: Checked
+     - Nesting: Unchecked
+     - Resource Pool: Leave blank
+     - Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
+     - Confirm password: Re-enter your unique, complex password.
+    - Template
+     - Storage: Pick the storage path where "Container Templates" are stored. This is the same storage path as the one identified in step 4 above.
+     - Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+    - Disks
+     - Storage: Choose where your LXCs virtual storage will be located
+     - Disk size (GiB): 8
+    - CPU
+     - Cores: 1
+     - CPU Limit: unlimited
+     - CPU Units: 100
+    - Memory
+     - Memory (MiB): 512
+     - Swap (MiB): 512
+    - Network
+     - Name: eth0
+     - MAC address: auto
+     - Bridge: vmbr0
+     - VLAN Tag: no VLAN
+     - Firewall: Checked
+     - IPv4: DHCP
 
 14. Click "Confirm".
 15. Click "Finish".
