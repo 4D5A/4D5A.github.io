@@ -65,6 +65,7 @@ This is lab number 2 in this series. If you have not already completed the previ
     - Firewall: Checked
     - IPv4: DHCP
     
+    
 14. Click "Confirm".
 15. Click "Finish".
 16. Expand your node.
