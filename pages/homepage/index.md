@@ -10,7 +10,7 @@ full-width: true
 <div class="homepage-grid">
 
   {%- assign categories_to_show = 
-      "blog:Blog,ctfwriteups:CTF Writeups,homelab:Homelab,projects:Projects" 
+      "blog:Blog,labs:Labs,ctfwriteups:CTF Writeups,homelab:Homelab,projects:Projects" 
       | split: "," -%}
 
   {%- for pair in categories_to_show -%}
