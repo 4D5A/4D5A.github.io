@@ -56,7 +56,7 @@ This is lab number 2 in this series. If you have not already completed the previ
         * Name: eth0
         * MAC address: auto
         * Bridge: vmbr0
-        * VLAN Tag: no VLAN (if you want to connect this LXC to a different VLAN, enter the VLAN ID (e.g. VLAN Tag: 2))
+        * VLAN Tag: no VLAN (If you want to connect this LXC to a different VLAN, enter the VLAN ID (you should only enter the VLAN ID (i.e. number))).
         * Firewall: Checked
         * IPv4: DHCP
 
