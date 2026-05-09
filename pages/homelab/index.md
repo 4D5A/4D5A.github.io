@@ -10,7 +10,7 @@ full-width: true
 <div class="homelab-grid">
 
   {%- assign categories_to_show = 
-      "dns:DNS,firewalls:Firewalls,networking:Networking,lxcs:LXCs,vms:VMs" 
+      "labs:Labs,dns:DNS,firewalls:Firewalls,networking:Networking,lxcs:LXCs,vms:VMs" 
       | split: "," -%}
 
   {%- for pair in categories_to_show -%}
