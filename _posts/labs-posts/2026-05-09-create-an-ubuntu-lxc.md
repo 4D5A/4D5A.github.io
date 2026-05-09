@@ -39,26 +39,31 @@ This is lab number 2 in this series. If you have not already completed the previ
     - Resource Pool: Leave blank
     - Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
     - Confirm password: Re-enter your unique, complex password.
+    
     Template
-        Storage: Choose where your LXCs virtual storage will be located
-        Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+    - Storage: Choose where your LXCs virtual storage will be located
+    - Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+    
     Disks
-        Storage:
-        Disk size (GiB):
+    - Storage:
+    - Disk size (GiB):
+    
     CPU
-        Cores: 1
-        CPU Limit: unlimited
-        CPU Units: 100
+    - Cores: 1
+    - CPU Limit: unlimited
+    - CPU Units: 100
+    
     Memory
-        Memory (MiB): 512
-        Swap (MiB): 512
+    - Memory (MiB): 512
+    - Swap (MiB): 512
+    
     Network
-        Name: eth0
-        MAC address: auto
-        Bridge: vmbr0
-        VLAN Tag: no VLAN
-        Firewall: Checked
-        IPv4: DHCP
+    - Name: eth0
+    - MAC address: auto
+    - Bridge: vmbr0
+    - VLAN Tag: no VLAN
+    - Firewall: Checked
+    - IPv4: DHCP
 
 14. Click "Confirm".
 15. Click "Finish".
