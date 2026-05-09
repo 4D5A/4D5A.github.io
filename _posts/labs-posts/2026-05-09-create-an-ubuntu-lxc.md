@@ -19,9 +19,9 @@ This is lab number 2 in this series. If you have not already completed the previ
 10. In "Section: system", click "lxc ubuntu-24.04-standard 24.04-2 Ubuntu 24.04 Noble (standard).
 11. Click "Download".
 
- Now you have the LXC Template for Ubuntu 24.04. You will need this to create a Proxmox LXC that emulates Ubuntu 24.04.
+    Now you have the LXC Template for Ubuntu 24.04. You will need this to create a Proxmox LXC that emulates Ubuntu 24.04.
 
- Let's create the Ubuntu 24.04 LXC.
+    Let's create the Ubuntu 24.04 LXC.
 
 12. Right click on your proxmox node (The default name is "pve".)
 13. Click "Create CT".
