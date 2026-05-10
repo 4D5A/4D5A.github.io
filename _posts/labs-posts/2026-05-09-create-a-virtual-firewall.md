@@ -85,6 +85,7 @@ This is lab number 3 in this series. If you have not already completed the previ
 
     After you install OPNSense, you should have the following network topology on your proxmox server.
 
+    ```text
     +------------------------+
     | VLAN 1 (Home Network)  |
     +------------------------+
@@ -102,7 +103,8 @@ This is lab number 3 in this series. If you have not already completed the previ
     |  eth0 NIC  ---> VLAN 1           |
     |  eth1 NIC  ---> VLAN 20          |
     +----------------------------------+
-
+    ```
+    
 38. Login to lab3-opnsense through the VM's Console. The default username is "root" and the default password is "opnsense".
 39. From the console for lab3-opnsense, choose option "7" for "Ping host" and verify that you can ping one of the IP addresses of Google's Public DNS Resolvers, 8.8.8.8. If that is successful you are ready to verify that your OPNSense firewall can resolve DNS queries. Since OPNSense does not have nslookup or dig installed by default, choose option "7" for "Ping host" again and verify that you can ping google.com. 
 40. Verify the eth0 IP address for your OPNSense VM and either set a static IP address or create a DHCP Reservation for the one eth0 received from DHCP.
