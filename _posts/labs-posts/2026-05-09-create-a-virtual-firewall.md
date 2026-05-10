@@ -65,7 +65,7 @@ This is lab number 3 in this series. If you have not already completed the previ
 25. Click "Add".
 26. Click "Network Device".
 
- Use the following settings:
+    Use the following settings:
 
     * Bridge: vmbr0
     * VLAN Tag: 20
@@ -83,7 +83,7 @@ This is lab number 3 in this series. If you have not already completed the previ
 35. Boot to the OPNSense ISO.
 36. Install OPNSense.
 
-After you install OPNSense, you should have the following network topology on your proxmox server.
+    After you install OPNSense, you should have the following network topology on your proxmox server.
 
     +------------------------+
     | VLAN 1 (Home Network)  |
