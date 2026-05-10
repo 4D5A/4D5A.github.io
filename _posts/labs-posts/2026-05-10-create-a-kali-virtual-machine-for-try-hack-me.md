@@ -30,13 +30,12 @@ This is lab number 4 in this series. If you have not already completed the previ
         * Memory (MiB): 4096 (use 8192 if your proxmox server has at least 16 GB of RAM)
         * Minimum memory (MiB): 4096 (use 8192 if your proxmox server has at least 16 GB of RAM)
     * Network
-        * Name: eth0
-        * MAC address: auto
         * Bridge: vmbr0
         * VLAN Tag: 20
+        * Model: VirtIO (paravirtualized)
         * Firewall: Checked
-        * IPv4: Temporarily set this to a static IP address that is in your OPNSense LAN subnet.
 4. Install Kali.
+    When you install Kali, temporarily assign a static IP address to the virtual machine. The static IP address must be in the same subnet as your OPNSense firewall's LAN. For the gateway, use the IP address assigned to your OPNSennse firwall's LAN interface. Use 8.8.8.8 as the DNS server.
 5. Log-in to Kali.
 6. Open Terminal.
 7. Verify network connectivity with the commands ```ping <OPNSense LAN Interface IP address>```, ```ping <OPNSense WAN Interface IP Address>```, ```ping 8.8.8.8```, and ```dig @8.8.8.8 google.com```. If you cannot ping 8.8.8.8 or resolve google.com, do not continue until you fix the problem.
@@ -46,3 +45,13 @@ This is lab number 4 in this series. If you have not already completed the previ
     sudo apt get update && sudo apt get upgrade -y
     ```
 9. Congratulations, you now have a Kali VM connected to the network through your virtual OPNSense firewall.
+10. Login to your OPNSense firewall.
+11. Enable the DHCP Server for the LAN subnet.
+12. Save your changes.
+13. Log out of your OPNSense firewall.
+14. Log into Kali.
+15. Change your network settings from using a static IP address to using DHCP.
+16. Confirm your VM receives the correct IP address, subnet mask, gateway, and DNS server from the DHCP Server on your OPNSense firewall.
+17. Verify network connectivity with the commands ```ping <OPNSense LAN Interface IP address>```, ```ping <OPNSense WAN Interface IP Address>```, ```ping 8.8.8.8```, and ```dig @8.8.8.8 google.com```. If you cannot ping 8.8.8.8 or resolve google.com, do not continue until you fix the problem.
+
+In this configuration, you will need your OPNSense firewall running for your Kali VM to have network connectivity.
