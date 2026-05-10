@@ -38,4 +38,4 @@ If you have problems connecting to the TryHackMe VPN, here are some troubleshoot
 
 By connecting to the TryHackMe VPN, you can use your Kali VM to complete TryHackMe Rooms without needing to use their browser based attack box.
 
-Ensure you always connect to the TryHackMe VPN before attempting to run any tools and that you only target authorized TryHackMe Room endpoints. Do not perform unauthorized scanning, attacking, exploitation, or other activities. You alone are responsible for your actions. If you have legal questions, consult a competent attorney licensed to practice law in the relevant jurisdictions.
+Ensure you always connect to the TryHackMe VPN before attempting to run any tools and that you only target authorized TryHackMe Room endpoints. Do not perform unauthorized scanning, attacking, exploitation, or other activities. You alone are responsible for your actions. If you have legal questions, consult a competent attorney licensed to practice law in the relevant jurisdiction.
