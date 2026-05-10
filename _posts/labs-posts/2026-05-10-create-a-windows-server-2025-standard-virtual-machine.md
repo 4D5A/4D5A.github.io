@@ -86,11 +86,13 @@ This is lab number 6 in this series. If you have not already completed the previ
 34. Congratulations, you now have a Windows Server 2025 VM that is functioning as a Domain Controller. This allows you to use Active Directory and Group Policy Management to manage accounts and policies on domain joined devices.
 
 35. Bonus task - Enable BitLocker encryption on lab6-DC1's system drive.
-36. Second bonus task - There is a way to configure the domain so domain joined computers automatically backup their BitLocker Recovery Key to Active Directory.
+36. Second bonus task - There is a way to configure the domain so domain joined computers automatically backup their BitLocker Recovery Key to Active Directory. Set this up and configure and write down any questions you have about BitLocker encryption.
 
     >Hint: This requires installing a Windows Server feature, creating a Group Policy Object (technically, you could add the configurations to the "Default Domain Policy" but it is best practice to reserve the "Default Domain Policy" and "Default Domain Controllers" policy to a handful of system configurations), and linking it to the correct Active Directory Organizational Unit.
 
     >>Riddle: The difference between these two AD object types, both of which may contain user or computer objects, determines whether or not a Group Policy Object can be linked to it.
+
+37. Quiz - Your domain joined and BitLocker encrypted computer starts up and prompts you to enter the BitLocker Recovery Key. Identify three possible options for either successfully booting the Windows OS or accessing the data stored on the BitLocker encrypted drive and explain the process for performing each method.
 
 In this configuration, you will need your OPNSense firewall running for your Windows Server 2025 VM to have network connectivity.
 
