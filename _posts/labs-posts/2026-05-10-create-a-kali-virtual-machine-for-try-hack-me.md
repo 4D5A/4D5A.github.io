@@ -39,7 +39,7 @@ This is lab number 4 in this series. If you have not already completed the previ
 4. Install Kali.
 5. Log-in to Kali.
 6. Open Terminal.
-7. Verify network connectivity with the commands ```ping **IP address of your OPNSense LAN Interface**```, ```ping **IP address of your OPNSense WAN Interface**```, ```ping 8.8.8.8```, and ```dig @8.8.8.8 google.com```. If you cannot ping 8.8.8.8 or resolve google.com, do not continue until you fix the problem.
+7. Verify network connectivity with the commands ```ping <OPNSense LAN Interface IP address>```, ```ping <OPNSense WAN Interface IP Address>```, ```ping 8.8.8.8```, and ```dig @8.8.8.8 google.com```. If you cannot ping 8.8.8.8 or resolve google.com, do not continue until you fix the problem.
 8. Update Kali software.
 
     ```bash
