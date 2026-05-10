@@ -82,9 +82,7 @@ This is lab number 6 in this series. If you have not already completed the previ
 
 48. Open DNS Server management.
 49. Add DNS Forwarders.
-
     * Use 8.8.8.8 and 8.8.4.4 as DNS Forwarders.
-
 50. Congratulations, you now have a Windows Server 2025 VM that is functioning as a Domain Controller. This allows you to use Active Directory and Group Policy Management to manage accounts and policies on domain joined devices.
 
 In this configuration, you will need your OPNSense firewall running for your Windows Server 2025 VM to have network connectivity.
