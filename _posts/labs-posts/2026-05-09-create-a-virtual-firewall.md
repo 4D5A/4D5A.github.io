@@ -123,7 +123,7 @@ Here is a list of TryHackMe rooms that introduce networking concepts.
 
 After you understand the basics of networking, you can start learning about network services such as firewalls, stateful packet inspection, IDS/IPS, URL filtering, application filtering, and SSL Inspection.
 
-Here are two TryHackMe rooms that provide introduce firewalls and IDS/IPS (which are integrated with many modern firewalls).
+Here are two TryHackMe rooms that provide introduce firewalls and IDS/IPS (which are integrated in many modern firewalls).
 
 [https://tryhackme.com/room/idsfundamentals](https://tryhackme.com/room/idsfundamentals)
 [https://tryhackme.com/room/firewallfundamentals](https://tryhackme.com/room/firewallfundamentals)
