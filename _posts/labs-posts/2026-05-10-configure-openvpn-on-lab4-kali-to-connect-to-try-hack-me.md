@@ -11,9 +11,9 @@ In this lab, you will use OpenVPN to connect your Kali VM to the TryHackMe VPN s
 
 Before you start setting up OpenVPN on your Kali VM, let's structure our home directory.
 
-You can find your home directory at "/home/**username**" or "~". Either browse to that location or open Terminal and change directories ```bash cd``` to it.
+You can find your home directory at "/home/**username**" or "~". Either browse to that location or open Terminal and change directories ```cd``` to it.
 
-First, make a new directory named "bin" in your home directory. You can either do this through the Window Manager or via Terminal by entering ```bash mkdir ~/bin```.
+First, make a new directory named "bin" in your home directory. You can either do this through the Window Manager or via Terminal by entering ```mkdir ~/bin```.
 
 Now let's download our OpenVPN configuration file from TryHackMe.
 
@@ -23,10 +23,15 @@ Now let's download our OpenVPN configuration file from TryHackMe.
 4. Click "VM and VPN Settings".
 5. Scroll down to "OpenVPN (Advanced)".
 6. Click "Download configuration file".
-7. Move the configuration file to ```bash ~/bin```.
+7. Move the configuration file to ```~/bin```.
 8. Open Terminal.
 9. Use the following command to connect to the TryHackMe VPN.
 
 ```bash
-sudo openvpn ~/bin/**OpenVPN configuration file**
+sudo openvpn ~/bin/OpenVPNConfigurationFilename.ovpn
 ```
+
+If you have problems connecting to the TryHackMe VPN, here are some troubleshooting resources that might be helpful.
+
+[https://tryhackme.com/room/openvpn](https://tryhackme.com/room/openvpn)
+[https://help.tryhackme.com/en/collections/3664918-openvpn-guide](https://help.tryhackme.com/en/collections/3664918-openvpn-guide)
