@@ -108,3 +108,20 @@ After you install OPNSense, you should have the following network topology on yo
 40. Verify the eth0 IP address for your OPNSense VM and either set a static IP address or create a DHCP Reservation for the one eth0 received from DHCP.
 
 You have installed an OPNSense firewall! In the next lab, we will create a Windows VM and connect it to the "LAN" network on the OPNSense firewall.
+
+Here is a list of TryHackMe rooms that introduce networking concepts.
+
+[https://tryhackme.com/room/introtonetworking](https://tryhackme.com/room/introtonetworking)
+[https://tryhackme.com/room/networkservices](https://tryhackme.com/room/networkservices)
+[https://tryhackme.com/room/networkservices2](https://tryhackme.com/room/networkservices2)
+[https://tryhackme.com/room/networkingconcepts](https://tryhackme.com/room/networkingconcepts)
+[https://tryhackme.com/room/networkingessentials](https://tryhackme.com/room/networkingessentials)
+[https://tryhackme.com/room/networkingcoreprotocols](https://tryhackme.com/room/networkingcoreprotocols)
+[https://tryhackme.com/room/networkingsecureprotocols](https://tryhackme.com/room/networkingsecureprotocols)
+
+After you understand the basics of networking, you can start learning about network services such as firewalls, stateful packet inspection, IDS/IPS, URL filtering, application filtering, and SSL Inspection.
+
+Here are two TryHackMe rooms that introduce firewalls and IDS/IPS.
+
+[https://tryhackme.com/room/idsfundamentals](https://tryhackme.com/room/idsfundamentals)
+[https://tryhackme.com/room/firewallfundamentals](https://tryhackme.com/room/firewallfundamentals)
