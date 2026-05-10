@@ -34,7 +34,7 @@ This is lab number 6 in this series. If you have not already completed the previ
         * VLAN Tag: 20
         * Model: VirtIO (paravirtualized)
         * Firewall: Checked
-        20. Click "Confirm".
+20. Click "Confirm".
 21. Click "Finish".
 22. Expand your node.
 23. Click your "lab6-DC1" VM.
