@@ -34,31 +34,31 @@ This is lab number 6 in this series. If you have not already completed the previ
         * VLAN Tag: 20
         * Model: VirtIO (paravirtualized)
         * Firewall: Checked
-20. Click "Confirm".
-21. Click "Finish".
-22. Expand your node.
-23. Click your "lab6-DC1" VM.
-24. Click "Hardware".
-25. Click "Add".
-26. Click "TPM State".
-27. To the right of "TPM Storage:" choose where to store the vTPM.
-28. Click "Add".
-29. Click "Options".
-30. Click "Boot Order".
-31. Click "Edit".
-32. Find your virtual DVD drive and move it to the top of the Boot Order.
-33. Click "OK".
-34. Click "Console".
-35. Click "Start".
-36. Boot to the Windows Server 2025 ISO.
-37. Install Windows Server 2025.
-38. When the installation asks you to choose what version of Windows Server 2025 to install, click "Windows Server 2025 Standard (Desktop)".
-39. Click "Next".
-40. Login to your your VM with ```Administrator``` for the username and the password you set during the installation process.
-41. Check for updates.
-42. In Windows Server 2025, rename the server to "lab6-DC1".
-43. Restart your server.
-44. Assign a static IP address to the server's network adapter.
+4. Click "Confirm".
+5. Click "Finish".
+6. Expand your node.
+7. Click your "lab6-DC1" VM.
+8. Click "Hardware".
+9. Click "Add".
+10. Click "TPM State".
+11. To the right of "TPM Storage:" choose where to store the vTPM.
+12. Click "Add".
+13. Click "Options".
+14. Click "Boot Order".
+15. Click "Edit".
+16. Find your virtual DVD drive and move it to the top of the Boot Order.
+17. Click "OK".
+18. Click "Console".
+19. Click "Start".
+20. Boot to the Windows Server 2025 ISO.
+21. Install Windows Server 2025.
+22. When the installation asks you to choose what version of Windows Server 2025 to install, click "Windows Server 2025 Standard (Desktop)".
+23. Click "Next".
+24. Login to your your VM with ```Administrator``` for the username and the password you set during the installation process.
+25. Check for updates.
+26. In Windows Server 2025, rename the server to "lab6-DC1".
+27. Restart your server.
+28. Assign a static IP address to the server's network adapter.
     * You can do this in Windows using this process.
         * Open "Control Panel"
         * Click "Network and Sharing Center"
@@ -71,22 +71,22 @@ This is lab number 6 in this series. If you have not already completed the previ
         * Set your static IP address, subnet mask, and default gateway.
         * Click "Use the following DNS server addressses:".
         * Set your Preferred DNS server to the static IP address you set and Alternate DNS server to 127.0.0.1.
-45. Open Server Manager
-46. Select and install the "Active Directory Domain Services" and "DNS Server" Roles. 
+29. Open Server Manager
+30. Select and install the "Active Directory Domain Services" and "DNS Server" Roles. 
 
     > Installing Active Directory Domain Services can be confusing if you have never done that before. If this is the first Domain Controller in the domain, you need to choose to create a new domain. For the domain name, best practice is to use a subdomain instead of the root. As an example, if your domain name is acme2.com, you might use the subdomain ad.acme2.com as your Windows domain name.
 
-47. Restart your Windows Server 2025 Standard server.
+31. Restart your Windows Server 2025 Standard server.
 
     * Domain joined machines need to use DNS servers that are domain joined including DCs. But how does a DC know how to resolve DNS queries? They use DNS Forwarders. Domain joined machines query domain joined DNS servers first. This allows domain joined DNS servers to respond with data related to the Windows domain. Requests for DNS zones not managed by the domain joined DNS server are forwarded to the servers specified as DNS Forwarders on domain joined DNS servers.
 
-48. Open DNS Server management.
-49. Add DNS Forwarders.
+32. Open DNS Server management.
+33. Add DNS Forwarders.
     * Use 8.8.8.8 and 8.8.4.4 as DNS Forwarders.
-50. Congratulations, you now have a Windows Server 2025 VM that is functioning as a Domain Controller. This allows you to use Active Directory and Group Policy Management to manage accounts and policies on domain joined devices.
+34. Congratulations, you now have a Windows Server 2025 VM that is functioning as a Domain Controller. This allows you to use Active Directory and Group Policy Management to manage accounts and policies on domain joined devices.
 
-51. Bonus task - Enable BitLocker encryption on lab6-DC1's system drive.
-52. Second bonus task - There is a way to configure the domain so domain joined computers automatically backup their BitLocker Recovery Key to Active Directory.
+35. Bonus task - Enable BitLocker encryption on lab6-DC1's system drive.
+36. Second bonus task - There is a way to configure the domain so domain joined computers automatically backup their BitLocker Recovery Key to Active Directory.
 
     >Hint: This requires installing a Windows Server feature, creating a Group Policy Object (technically, you could add the configurations to the "Default Domain Policy" but it is best practice to reserve the "Default Domain Policy" and "Default Domain Controllers" policy to a handful of system configurations), and linking it to the correct Active Directory Organizational Unit.
 
