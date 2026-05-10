@@ -50,7 +50,7 @@ This is lab number 6 in this series. If you have not already completed the previ
 33. Click "OK".
 34. Click "Console".
 35. Click "Start".
-36. Boot to the OPNSense ISO.
+36. Boot to the Windows Server 2025 ISO.
 37. Install Windows Server 2025.
 38. When the installation asks you to choose what version of Windows Server 2025 to install, click "Windows Server 2025 Standard (Desktop)".
 39. Click "Next".
@@ -84,6 +84,13 @@ This is lab number 6 in this series. If you have not already completed the previ
 49. Add DNS Forwarders.
     * Use 8.8.8.8 and 8.8.4.4 as DNS Forwarders.
 50. Congratulations, you now have a Windows Server 2025 VM that is functioning as a Domain Controller. This allows you to use Active Directory and Group Policy Management to manage accounts and policies on domain joined devices.
+
+51. Bonus task - Enable BitLocker encryption on lab6-DC1's system drive.
+52. Second bonus task - There is a way to configure the domain so domain joined computers automatically backup their BitLocker Recovery Key to Active Directory.
+
+    >Hint: This requires installing a Windows Server feature, creating a Group Policy Object (technically, you could add the configurations to the "Default Domain Policy" but it is best practice to reserve the "Default Domain Policy" and "Default Domain Controllers" policy to a handful of system configurations), and linking it to the correct Active Directory Organizational Unit.
+
+    >>Riddle: The difference between these two AD object types, both of which may contain user or computer objects, determines whether or not a Group Policy Object can be linked to it.
 
 In this configuration, you will need your OPNSense firewall running for your Windows Server 2025 VM to have network connectivity.
 
