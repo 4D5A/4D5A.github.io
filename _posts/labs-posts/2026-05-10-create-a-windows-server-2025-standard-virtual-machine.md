@@ -81,7 +81,6 @@ This is lab number 6 in this series. If you have not already completed the previ
     * Domain joined machines need to use DNS servers that are domain joined including DCs. But how does a DC know how to resolve DNS queries? They use DNS Forwarders. Domain joined machines query domain joined DNS servers first. This allows domain joined DNS servers to respond with data related to the Windows domain. Requests for DNS zones not managed by the domain joined DNS server are forwarded to the servers specified as DNS Forwarders on domain joined DNS servers.
 
 48. Open DNS Server management.
-
 49. Add DNS Forwarders.
 
     * Use 8.8.8.8 and 8.8.4.4 as DNS Forwarders.
