@@ -22,6 +22,12 @@ Minimum proxmox server requirements for the labs:
 * At least 256 GB of storage space
 * Network adapter (wired or wireless)
 
+Recommended proxmox server requirements for the labs:
+* Intel 64 or AMD64 with Intel VT/AMD-V CPU flag.
+* 16 GB to 32 GB of RAM
+* 500 GB to 1 TB of storage space
+* Two network adapters (wired)
+
 **The official Proxmox minimum system requirements are available at [https://www.proxmox.com/en/products/proxmox-virtual-environment/requirements](https://www.proxmox.com/en/products/proxmox-virtual-environment/requirements).**
 
 > Keep in mind, those are the minimum requirements for this lab. This does not include redundant storage devices, redundant network adapters, and does not address important considerations such as RAID / ZFS / Ceph, network segmentation (highly recommended for security), backups, proxmox clusters, or directory services.
