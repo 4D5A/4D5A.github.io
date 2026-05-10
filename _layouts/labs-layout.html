@@ -11,7 +11,8 @@ layout: page
 
 {% if cat_posts.size > 0 %}
 <ul class="homelab-post-list" role="list">
-  {% for post in cat_posts reversed %}
+  {% assign sorted_posts = cat_posts | sort: "title" %}
+  {% for post in sorted_posts %}
     <li class="post-preview">
       <article>
 
