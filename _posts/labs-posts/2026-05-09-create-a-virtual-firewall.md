@@ -47,13 +47,19 @@ This is lab number 3 in this series. If you have not already completed the previ
     * Disks
         * Storage: Choose where your VM virtual drive will be located
         * Disk size (GiB): 50
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-disks.png' | relative_url }}" alt="Create VM: Disks" />
     * CPU
         * Cores: 1
         * CPU Limit: unlimited
         * CPU Units: 100
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-cpu.png' | relative_url }}" alt="Create VM: CPU" />
     * Memory
         * Memory (MiB): 4096
         * Minimum memory (MiB): 4096
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-memory.png' | relative_url }}" alt="Create VM: Memory" />
     * Network
         * Name: eth0
         * MAC address: auto
@@ -61,6 +67,8 @@ This is lab number 3 in this series. If you have not already completed the previ
         * VLAN Tag: no VLAN (this will be your WAN interface)
         * Firewall: Checked
         * IPv4: DHCP
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-network.png' | relative_url }}" alt="Create VM: Network" />
 
 20. Click "Confirm".
 21. Click "Finish".
@@ -78,12 +86,16 @@ This is lab number 3 in this series. If you have not already completed the previ
     * Firewall: Checked
     * Model: VirtIO (paravitualized) 
 
+    <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-add-a-network-device.png' | relative_url }}" alt="Add a Network Device" />
+
 27. Click "Add".
 28. Click "Options".
 29. Click "Boot Order".
 30. Click "Edit".
 31. Find your virtual DVD drive and move it to the top of the Boot Order.
 32. Click "OK".
+
+    <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/edit-vm-boot-order.png' | relative_url }}" alt="Edit VM Boot Order" />
 33. Click "Console".
 34. Click "Start".
 35. Boot to the OPNSense ISO.
