@@ -67,12 +67,15 @@ This is lab number 3 in this series. If you have not already completed the previ
 
         <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-memory.png' | relative_url }}" alt="Create VM: Memory" />
     * Network
-        * Name: eth0
-        * MAC address: auto
         * Bridge: vmbr0
         * VLAN Tag: no VLAN (this will be your WAN interface)
         * Firewall: Checked
-        * IPv4: DHCP
+        * Model: VirtIO (paravirtualized)
+        * MAC address: auto
+        * Disconnect: Unchecked
+        * MTU: Same as bridge
+        * Rate limit (MB/s): Unlimited
+        * Multiqueue: Leave blank
 
         <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-network.png' | relative_url }}" alt="Create VM: Network" />
 
@@ -92,7 +95,7 @@ This is lab number 3 in this series. If you have not already completed the previ
     * Firewall: Checked
     * Model: VirtIO (paravitualized) 
 
-    <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-add-a-network-device.png' | relative_url }}" alt="Add a Network Device" />
+    <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/vm-hardware-add-a-network-device.png' | relative_url }}" alt="VM Hardware: Add a Network Device" />
 
 27. Click "Add".
 28. Click "Options".
