@@ -101,14 +101,14 @@ This is lab number 2 in this series. If you have not already completed the previ
 
 >Hint: ```apt get update``` will check for updates for the programs installed on your linux system. ```apt get upgrade -y``` will install them without being prompted for confirmation. You can combine these commands by entering **apt get update && apt get upgrade -y**.
 
->Tip: Be aware that if you did not connect the LXC to a VLAN, it may be running on the same network your management system is connected to. While this may simplify access, it is important that you properly secure all lab infrastructure including your proxmox server and LXCs. A security best practice is to place servers in their own VLAN. Infrastructure management interfaces should be in a seperate VLAN. While you might think threat actors are not interested in attacking your lab infrastructure, there are examples of that taking place. Because each network is a unique environment, recommending specific network designs or security configurations is outside the scope of these labs. Please ensure you are properly securing your environment as you alone are responsible for your network security.
-
-[https://www.pcmag.com/news/lastpass-employee-couldve-prevented-hack-with-a-software-update](https://www.pcmag.com/news/lastpass-employee-couldve-prevented-hack-with-a-software-update)
-
-[https://www.cisa.gov/news-events/alerts/2023/11/29/cisa-releases-first-secure-design-alert](https://www.cisa.gov/news-events/alerts/2023/11/29/cisa-releases-first-secure-design-alert)
+>Tip: Be aware that if you did not connect the LXC to a VLAN, it may be running on the same network your management system is connected to. While this may simplify access, it is important that you properly secure all lab infrastructure including your proxmox server and LXCs. A security best practice is to place servers in their own VLAN. Infrastructure management interfaces should be in a seperate VLAN. While you might think threat actors are not interested in attacking your lab infrastructure, there are examples of that taking place.<sup>1, 2</sup> Because each network is a unique environment, recommending specific network designs or security configurations is outside the scope of these labs. Please ensure you are properly securing your environment as you alone are responsible for your network security.
 
 Here is a list of TryHackMe rooms that offer introductory linux training.
 
 [https://tryhackme.com/room/linuxfundamentalspart1](https://tryhackme.com/room/linuxfundamentalspart1)
 [https://tryhackme.com/room/linuxfundamentalspart2](https://tryhackme.com/room/linuxfundamentalspart2)
 [https://tryhackme.com/room/linuxfundamentalspart3](https://tryhackme.com/room/linuxfundamentalspart3)
+
+[1] [https://www.pcmag.com/news/lastpass-employee-couldve-prevented-hack-with-a-software-update](https://www.pcmag.com/news/lastpass-employee-couldve-prevented-hack-with-a-software-update)
+
+[2] [https://www.cisa.gov/news-events/alerts/2023/11/29/cisa-releases-first-secure-design-alert](https://www.cisa.gov/news-events/alerts/2023/11/29/cisa-releases-first-secure-design-alert)
