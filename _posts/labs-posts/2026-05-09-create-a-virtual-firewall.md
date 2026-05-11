@@ -50,9 +50,15 @@ This is lab number 3 in this series. If you have not already completed the previ
 
         <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-disks.png' | relative_url }}" alt="Create VM: Disks" />
     * CPU
+        * Sockets: 1
         * Cores: 1
-        * CPU Limit: unlimited
-        * CPU Units: 100
+        * Type: x86-64-v2-AES
+        * Total cores: 1
+        * VCUPS: 1
+        * CPU limit: unlimited
+        * CPU Affinity: All Cores
+        * CPU units: 100
+        * Enable NUMA: Unchecked
 
         <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-cpu.png' | relative_url }}" alt="Create VM: CPU" />
     * Memory
