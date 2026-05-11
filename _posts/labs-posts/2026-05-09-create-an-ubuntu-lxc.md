@@ -39,19 +39,29 @@ This is lab number 2 in this series. If you have not already completed the previ
         * Resource Pool: Leave blank
         * Password: **Use a unique, complex password. This will be the "root" password for your LXC.**
         * Confirm password: Re-enter your unique, complex password.
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-general.png' | relative_url }}" alt="Create LXC Container: General" />
     * Template
         * Storage: Pick the storage path where "Container Templates" are stored. This is the same storage path as the one identified in step 4 above.
         * Template: ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-template.png' | relative_url }}" alt="Create LXC Container: Template" />
     * Disks
         * Storage: Choose where your LXCs virtual storage will be located
         * Disk size (GiB): 8
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-disks.png' | relative_url }}" alt="Create LXC Container: Disks" />
     * CPU
         * Cores: 1
         * CPU Limit: unlimited
         * CPU Units: 100
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-cpu.png' | relative_url }}" alt="Create LXC Container: CPU" />
     * Memory
         * Memory (MiB): 512
         * Swap (MiB): 512
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-memory.png' | relative_url }}" alt="Create LXC Container: Memory" />
     * Network
         * Name: eth0
         * MAC address: auto
@@ -59,6 +69,14 @@ This is lab number 2 in this series. If you have not already completed the previ
         * VLAN Tag: no VLAN (If you want to connect this LXC to a different VLAN, enter the VLAN ID number).
         * Firewall: Checked
         * IPv4: DHCP
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-network.png' | relative_url }}" alt="Create LXC Container: Network" />
+
+    * DNS
+        * DNS domain: use host settings
+        * DNS servers: use host settings
+
+        <img src="{{ 'assets/img/lab-posts/2026-05-09-create-an-ubuntu-lxc/create-lxc-container-dns.png' | relative_url }}" alt="Create LXC Container: DNS" />
 
 14. Click "Confirm".
 15. Click "Finish".
