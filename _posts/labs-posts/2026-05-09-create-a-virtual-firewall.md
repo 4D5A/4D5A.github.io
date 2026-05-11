@@ -24,6 +24,8 @@ This is lab number 3 in this series. If you have not already completed the previ
 15. Click "Paste".
 16. Click "Query URL".
 17. Click "Download".
+
+    <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/download-opnsense.png' | relative_url }}" alt="Download OPNSense" />
 18. Right click on your proxmox node (The default name is "pve".)
 19. Click "Create VM".
 
@@ -34,10 +36,14 @@ This is lab number 3 in this series. If you have not already completed the previ
         * VM ID: 200
         * Name: lab3-opnsense
         * Start at boot: Checked
+
+            <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-general.png' | relative_url }}" alt="Create VM: General" />
     * OS
         * Use CD/DVD disc image file (iso): Yes
             * Storage: Pick the storage path where "ISO Image" are stored. This is the same storage path as the one identified in step 8 above.
             * ISO Image: OPNsense-26.1.6-dvd-amd64.iso
+
+            <img src="{{ 'assets/img/lab-posts/2026-05-09-create-a-virtual-firewall/create-vm-os.png' | relative_url }}" alt="Create VM: OS" />
     * Disks
         * Storage: Choose where your VM virtual drive will be located
         * Disk size (GiB): 50
