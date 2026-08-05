@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title | default: "This page has moved" }}</title>
+  <meta http-equiv="refresh" content="0; url={{ site.new_domain }}{{ page.url }}">
+  <link rel="canonical" href="{{ site.new_domain }}{{ page.url }}">
+  <script>location.replace("{{ site.new_domain }}{{ page.url }}");</script>
+</head>
+<body>
+  <p>This page has moved to <a href="{{ site.new_domain }}{{ page.url }}">{{ site.new_domain }}{{ page.url }}</a>.</p>
+</body>
+</html>

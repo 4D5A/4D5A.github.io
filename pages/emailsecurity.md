@@ -1,6 +1,5 @@
 ---
-layout: emailsecurity
-title: Email Security
+layout: redirect
 permalink: /emailsecurity
-subtitle: 
+# redirect stub for pages/emailsecurity.md (permalink: /emailsecurity)
 ---

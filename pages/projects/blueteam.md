@@ -1,6 +1,5 @@
 ---
-layout: projects-categories-layout
-title: Blue Team
+layout: redirect
 permalink: /projects/blueteam/
-category_key: blueteam
+# redirect stub for pages/projects/blueteam.md (permalink: /projects/blueteam/)
 ---

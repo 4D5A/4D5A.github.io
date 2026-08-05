@@ -1,7 +1,5 @@
 ---
-layout: ctf-writeups-layout
-title: "Impose Cost January 2024 Challenge Writeup"
+layout: redirect
 permalink: /ctf/impose-cost-january-2024-challenege/
-thumbnail: /assets/img/ctf/impose-cost-january-2024-challenege/impose-cost-january-2024-challenege.png
-event: impose-cost-january-2024-challenege
+# redirect stub for pages/ctf/impose-cost-january-2024-challenege.md (permalink: /ctf/impose-cost-january-2024-challenege/)
 ---

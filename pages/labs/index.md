@@ -1,5 +1,5 @@
 ---
-layout: labs-layout
-title: Labs
+layout: redirect
 permalink: /labs/
+# redirect stub for pages/labs/index.md (permalink: /labs/)
 ---

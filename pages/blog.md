@@ -1,6 +1,5 @@
 ---
-layout: blog
-title: Blog
+layout: redirect
 permalink: /blog/
-subtitle:
+# redirect stub for pages/blog.md (permalink: /blog/)
 ---

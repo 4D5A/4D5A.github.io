@@ -1,7 +1,5 @@
 ---
-layout: ctf-writeups-layout
-title: "TryHackMe Writeups"
+layout: redirect
 permalink: /ctf/tryhackme/
-thumbnail: /assets/img/ctf/TryHackMe/TryHackMe.png
-event: tryhackme-challenges
+# redirect stub for pages/ctf/tryhackme.md (permalink: /ctf/tryhackme/)
 ---

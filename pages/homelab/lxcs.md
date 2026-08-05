@@ -1,5 +1,5 @@
 ---
-layout: homelab-categories-layout
-title: LXCs
+layout: redirect
 permalink: /homelab/lxcs/
+# redirect stub for pages/homelab/lxcs.md (permalink: /homelab/lxcs/)
 ---
