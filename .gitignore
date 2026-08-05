@@ -21,3 +21,7 @@ Gemfile.lock
 .DS_Store
 Thumbs.db
 *.swp
+
+# Claude Code local dev/preview config (e.g. launch.json) — machine-specific
+# paths, not meant to be public.
+.claude/
